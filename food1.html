@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Welcome Delicious Food</title>
+  <style>
+    /* Reset */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Arial', sans-serif;
+    }
+    html {
+      scroll-behavior: smooth;
+    }
+    body {
+      background-color: #fff8f0;
+      color: #333;
+      line-height: 1.6;
+      padding-top: 60px;
+    }
+    /* Navbar */
+    nav {
+      background-color: #ff6f61;
+      padding: 15px 20px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 100;
+    }
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 30px;
+    }
+    nav ul li a {
+      color: white;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 1.1rem;
+      transition: color 0.3s ease;
+    }
+    nav ul li a:hover {
+      color: #ffe4dc;
+    }
+    /* Header */
+    header {
+      background-color: #ff6f61;
+      padding: 40px 0;
+      text-align: center;
+      color: white;
+      font-size: 3rem;
+      font-weight: bold;
+      letter-spacing: 2px;
+      margin-bottom: 40px;
+    }
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+    h2 {
+      margin-bottom: 20px;
+      color: #ff6f61;
+      text-align: center;
+      font-size: 2rem;
+    }
+    /* Sections */
+    section {
+      margin-bottom: 60px;
+    }
+    /* Food Grid */
+    .food-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 30px;
+      margin-top: 30px;
+    }
+    .food-card {
+      background-color: white;
+      border-radius: 15px;
+      overflow: hidden;
+      box-shadow: 0 6px 15px rgba(255, 111, 97, 0.3);
+      transition: transform 0.3s ease;
+      cursor: pointer;
+    }
+    .food-card:hover {
+      transform: scale(1.05);
+    }
+    .food-card img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+    }
+    .food-info {
+      padding: 15px 20px;
+    }
+    .food-info h3 {
+      margin-bottom: 10px;
+      color: #ff6f61;
+    }
+    .food-info p {
+      font-size: 0.9rem;
+      color: #555;
+    }
+    /* Food Details */
+    #food-details {
+      background-color: #fff0eb;
+      padding: 30px 20px;
+      border-radius: 15px;
+      box-shadow: 0 6px 15px rgba(255, 111, 97, 0.15);
+      max-width: 800px;
+      margin: 0 auto;
+      display: none;
+    }
+    #food-details h3 {
+      color: #ff6f61;
+      margin-bottom: 15px;
+    }
+    #food-details p {
+      font-size: 1.1rem;
+      color: #444;
+    }
+    /* About */
+    #about p {
+      text-align: center;
+      max-width: 700px;
+      margin: 0 auto;
+      font-size: 1.1rem;
+      color: #555;
+    }
+    /* Contact */
+    #contact form {
+      max-width: 600px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      background-color: #fff8f0;
+      padding: 30px 20px;
+      border-radius: 15px;
+      box-shadow: 0 6px 15px rgba(255, 111, 97, 0.2);
+    }
+    #contact label {
+      font-weight: 600;
+      color: #555;
+    }
+    #contact input,
+    #contact textarea {
+      padding: 10px 15px;
+      border: 2px solid #ff6f61;
+      border-radius: 8px;
+      font-size: 1rem;
+      resize: vertical;
+      transition: border-color 0.3s ease;
+    }
+    #contact input:focus,
+    #contact textarea:focus {
+      outline: none;
+      border-color: #ff3e2f;
+    }
+    #contact button {
+      background-color: #ff6f61;
+      color: white;
+      padding: 12px;
+      font-size: 1.1rem;
+      font-weight: bold;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+    #contact button:hover {
+      background-color: #ff3e2f;
+    }
+    /* Footer */
+    footer {
+      text-align: center;
+      padding: 15px 0;
+      background-color: #ff6f61;
+      color: white;
+      font-size: 1rem;
+    }
+    @media (max-width: 600px) {
+      nav ul {
+        flex-direction: column;
+        gap: 10px;
+      }
+      header {
+        font-size: 2.2rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Navbar -->
+  <nav>
+    <ul>
+      <li><a href="#home">Home</a></li>
+      <li><a href="#menu">Menu</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- Home Section -->
+  <header id="home">
+    Welcome to Delicious Food
+	
+	<!-- Intro Section -->
+<section id="intro" style="text-align:center; padding: 20px 20px;">
+  <h2 style="color: #ff6f61; font-size: 1rem; margin-bottom: 13px;">Taste the Joy of Freshness</h2>
+  <p style="max-width: 650px; margin: 0 auto; font-size: 1.0rem; color: #555;">
+    At <strong>Delicious Food</strong>, we serve more than just meals — we serve memories. Whether you're craving comfort food or looking for a new culinary adventure, our chef-curated dishes are made with love, locally sourced ingredients, and global inspiration.
+  </p>
+</section>
+
+<!-- Feature Highlights -->
+<section id="features" style="display: flex; flex-wrap: wrap; gap: 20px; justify-content: center; padding: 20px 0;">
+  <div style="flex: 1 1 200px; background-color: #fff0eb; padding: 20px; border-radius: 15px; box-shadow: 0 4px 10px rgba(255, 111, 97, 0.1);">
+    <h3 style="color: #ff6f61; margin-bottom: 3px;">🍳 Handcrafted Recipes</h3>
+    <p style="color: #555;">Every dish is a celebration of flavor — inspired by tradition, refined with creativity.</p>
+  </div>
+  <div style="flex: 1 1 200px; background-color: #fff0eb; padding: 20px; border-radius: 10px; box-shadow: 0 4px 10px rgba(255, 111, 97, 0.1);">
+    <h3 style="color: #ff6f61; margin-bottom: 6px;">🌿 Fresh Ingredients</h3>
+    <p style="color: #555;">We source locally and seasonally to give you the best in every bite.</p>
+  </div>
+  <div style="flex: 1 1 200px; background-color: #fff0eb; padding: 20px; border-radius: 15px; box-shadow: 0 4px 10px rgba(255, 111, 97, 0.1);">
+    <h3 style="color: #ff6f61; margin-bottom: 6px;">🚚 Fast & Friendly Delivery</h3>
+    <p style="color: #555;">Deliciousness delivered to your doorstep — quick, safe, and always fresh.</p>
+  </div>
+</section>
+
+  <div class="container">
+    <!-- Menu Section -->
+    <section id="menu">
+      <h2>Our Favorite Dishes</h2>
+	  <h3><b>Our Favorite Dishes</b></h3>
+	  <p>"Life is short, eat the sprinkles!😋"</p>
+      <div class="food-grid">
+        <div class="food-card" onclick="showDetails('Paneer-Tikka-Masalaer masala', 'Paneer-Tikka-Masala Perfectly creamy and delicious!')">
+          <img src="https://www.wellplated.com/wp-content/uploads/2017/09/Best-Paneer-Tikka-Masala.jpg" alt="Paneer-Tikka-Masala" />
+          <div class="food-info">
+            <h3>Paneer-Tikka-Masala</h3>
+            <p>Paneer-Tikka-Masala with rooti.</p>
+          </div>
+        </div>
+
+        
+         <div class="food-card" onclick="showDetails('Avocado Toast', 'Toasted bread topped with ripe smashed avocado, a drizzle of olive oil, chili flakes, and a pinch of sea salt. Healthy and tasty!')">
+      <img src="https://thumbs.dreamstime.com/b/veg-dalcha-rice-made-chana-dal-tamarind-indian-spices-served-dish-called-bagara-khana-originating-hyderabad-225788850.jpg" alt="Avocado Toast" />
+      <div class="food-info">
+        <h3>Dalcha Rice</h3>
+        <p>Dalcha, is an Indian lentil-based stew originating from Hyderabad, Telangana.</p>
+      </div>
+    </div>
+
+    <div class="food-card" onclick="showDetails('Sushi Platter', 'A fresh assortment of sushi including salmon, tuna, and avocado rolls. Served with wasabi and pickled ginger.')">
+      <img src="https://images.slurrp.com/prodarticles/itufeq4nvid.webp" alt="Sushi Platter" />
+      <div class="food-info">
+        <h3>Pithala Bhakari</h3>
+        <p>Maharastras No.1 dish.</p>
+      </div>
+    </div>
+
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Food Details -->
+<section id="food-details">
+  <h3 id="detail-title"></h3>
+  <p id="detail-description"></p>
+</section>
+
+<!-- About Section -->
+<section id="about">
+  <h2>About Us</h2>
+  <p>
+    At Welcome Delicious Food, we believe great food brings people together.Using fresh ingredients to create dishes that delight your taste buds.
+	<section id="about">
+  <h2>About Us</h2>
+  <p>
+    At <strong>Welcome Delicious Food</strong>, we believe that food is more than just sustenance—
+    it's an experience. Every dish we serve is crafted with passion and precision, bringing
+    together fresh ingredients and time-honored recipes.
+  </p>
+  <p>
+    Our chefs blend tradition with innovation, ensuring that every bite delights your taste buds.
+    From comforting classics to bold, modern flavors, we curate meals that satisfy cravings
+    and create lasting memories.
+  </p>
+  <p>
+    Whether you're enjoying a meal at our cozy restaurant or having it delivered straight to your doorstep,
+    our mission remains the same—delivering happiness, one delicious plate at a time.
+  </p>
+  <h3 style="text-align: center; color: #ff6f61; margin-top: 30px;">🍴 Our Philosophy</h3>
+<p style="text-align: center; max-width: 700px; margin: 0 auto; font-size: 1.1rem; color: #555;">
+  We believe in more than just filling plates — we believe in filling hearts. Our menu is a reflection of our values: community, sustainability, and culinary creativity.
+</p>
+<h3 style="text-align: center; color: #ff6f61; margin-top: 30px;">👨‍🍳 Meet Our Chefs</h3>
+<p style="text-align: center; max-width: 700px; margin: 0 auto; font-size: 1.1rem; color: #555;">
+  From seasoned veterans to rising stars, our chefs bring global experiences to your table, crafting each meal with care and curiosity.
+</p>
+<h3 style="text-align: center; color: #ff6f61; margin-top: 30px;">🌍 Sustainability Matters</h3>
+<p style="text-align: center; max-width: 700px; margin: 0 auto; font-size: 1.1rem; color: #555;">
+  We partner with local farms and minimize waste so that your indulgence today supports a better tomorrow.
+</p>
+</section>
+  </p>
+</section>
+
+<!-- Contact Section -->
+<section id="contact">
+
+  <h2>Contact Us</h2>
+  
+  
+  <form onsubmit="handleSubmit(event)">
+    <label for="name">Name</label>
+    <input type="text" id="name" name="name" required placeholder="Your name" />
+
+    <label for="email">Email</label>
+    <input type="email" id="email" name="email" required placeholder="Your email" />
+
+    <label for="message">Message</label>
+    <textarea id="message" name="message" rows="4" required placeholder="Your message"></textarea>
+
+    <button type="submit">Sumbit</button>
+	<form onsubmit="handleSubmit(event)" style="font-size: 0.9rem;">
+
+  </form>
+</section>
+      </form>
+    </section>
+  </div>
+
+  <footer>
+    &copy; 2025 Delicious Food. All rights reserved.
+  </footer>
+
+  <script>
+    function showDetails(title, description) {
+      const details = document.getElementById('food-details');
+      document.getElementById('detail-title').textContent = title;
+      document.getElementById('detail-description').textContent = description;
+      details.style.display = 'block';
+      details.scrollIntoView({ behavior: 'smooth' });
+    }
+
+    function handleSubmit(event) {
+      event.preventDefault();
+      const name = event.target.name.value;
+      alert(Thank you, ${name}! Your message has been sent.);
+      event.target.reset();
+    }
+  </script>
+</body>
+</html>
